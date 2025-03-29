@@ -1,33 +1,3 @@
---[[
-
-            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-                    Version 2, December 2004
-
- Copyright (C) 2022-2023 Alexandru Armando Davisca Petrescu
-  Röntgengasse 94, 1170 Vienna, Austria
- Everyone is permitted to copy and distribute verbatim or modified
- copies of this license document, and changing it is allowed as long
- as the name is changed.
-
-            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
-
-  0. You just DO WHAT THE FUCK YOU WANT TO.
-
---]]
-
-while true do
-    task.wait(1)
-    if game:IsLoaded() and game.PlaceId == 606849621 then
-        break
-    end
-end
-
-local IS_NOT_OBFUSCATED = false
-if not LPH_OBFUSCATED then
-    warn("ice tray debug")
-    IS_NOT_OBFUSCATED = true
-end
 
 local player = game:GetService("Players").LocalPlayer
 local httpservice = game:GetService("HttpService")
@@ -82,20 +52,8 @@ local function getKeyInfo(key)
 end
 
 local function validate(key)
-    key = tostring(key)
-    if not key then
-        while true do end
-    end
-    local newKey = ""
-    for i=1, key:len() do
-        local byte = key:byte(i)
-        if byte then
-            local char = string.char(byte)
-            if char ~= " " then
-                newKey = newKey .. char
-            end
-        end
-    end
+  return true
+end
     local info = getKeyInfo(newKey)
 	if info.Success then
 		local body = httpservice:JSONDecode(info.Body)
